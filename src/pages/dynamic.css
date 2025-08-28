@@ -1,0 +1,328 @@
+@font-face {
+  font-family: "Cactus";
+  src: url("./fonts/CactusClassicalSerif-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Cormorant";
+  src: url("./fonts/CormorantGaramond-VariableFont_wght.ttf");
+}
+
+
+
+.renovar-post * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.renovar-post {
+  font-family: "Cormorant", serif;
+  background: #000000;
+  background-image: 
+      linear-gradient(45deg, #111111 25%, transparent 25%), 
+      linear-gradient(-45deg, #111111 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #111111 75%), 
+      linear-gradient(-45deg, transparent 75%, #111111 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100vw;
+}
+
+.renovar-post .post-container {
+  width: 100%;
+  max-width: 80vw;
+  animation: slideInSharp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.renovar-post .header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border: 3px solid #ffffff;
+  padding: 1.5rem;
+  background: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.renovar-post .header:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-post .header h1 {
+  font-family: "Cactus", serif;
+  color: #ffffff;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 3px 3px 0px #333333;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.renovar-post .header p {
+  color: #cccccc;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.renovar-post .post-card {
+  background: #ffffff;
+  border: 4px solid #000000;
+  padding: 3rem 2.5rem;
+  box-shadow: 
+      8px 8px 0px #333333,
+      12px 12px 0px #666666;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.renovar-post .post-card:hover {
+  box-shadow: 
+      10px 10px 0px #333333,
+      14px 14px 0px #666666;
+}
+
+.renovar-post .post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #000000;
+}
+
+.renovar-post .post-label {
+  background: #000000;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.renovar-post .post-date {
+  color: #666666;
+  font-style: italic;
+}
+
+.renovar-post .post-title {
+  font-family: "Cactus", serif;
+  color: #000000;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.renovar-post .post-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #000000;
+}
+
+.renovar-post .post-content {
+  color: #000000;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.renovar-post .post-content h1,
+.renovar-post .post-content h2,
+.renovar-post .post-content h3 {
+  font-family: "Cormorant", serif;
+  margin: 1.5rem 0 1rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+.renovar-post .post-content h1 {
+  font-size: 2rem;
+}
+
+.renovar-post .post-content h2 {
+  font-size: 1.7rem;
+}
+
+.renovar-post .post-content h3 {
+  font-size: 1.4rem;
+}
+
+.renovar-post .post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.renovar-post .post-content ul,
+.renovar-post .post-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.renovar-post .post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.renovar-post .post-content blockquote {
+  border-left: 4px solid #000000;
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.renovar-post .post-content code {
+  background: #000000;
+  color: #ffffff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.renovar-post .post-content pre {
+  background: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.renovar-post .post-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.renovar-post .post-content a {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+.renovar-post .post-content a:hover {
+  text-decoration: none;
+}
+
+.renovar-post .back-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+  text-decoration: none;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.renovar-post .back-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-post .loading {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  padding: 2rem;
+}
+
+.renovar-post .error-message {
+  background: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #ffffff;
+  margin-bottom: 2rem;
+}
+
+.renovar-post .error-message .back-btn {
+  margin-left: 1rem;
+}
+
+@keyframes slideInSharp {
+  from {
+      opacity: 0;
+      transform: translate(20px, 20px);
+  }
+  to {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+.renovar-post .post-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: 
+      repeating-linear-gradient(
+          45deg,
+          #000000 0px,
+          #000000 2px,
+          #ffffff 2px,
+          #ffffff 4px
+      );
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .renovar-post body {
+      padding: 1rem;
+  }
+
+  .renovar-post .post-container {
+      max-width: 100%;
+  }
+
+  .renovar-post .header h1 {
+      font-size: 2.5rem;
+  }
+
+  .renovar-post .post-card {
+      padding: 2rem 1.5rem;
+  }
+
+  .renovar-post .post-title {
+      font-size: 2rem;
+  }
+
+  .renovar-post .post-content {
+      font-size: 1.1rem;
+  }
+
+  .renovar-post .post-meta {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+  }
+}

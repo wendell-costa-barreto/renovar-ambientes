@@ -1,0 +1,617 @@
+@font-face {
+  font-family: "Cactus";
+  src: url("./fonts/CactusClassicalSerif-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Cormorant";
+  src: url("./fonts/CormorantGaramond-VariableFont_wght.ttf");
+}
+
+.renovar-admin * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.renovar-admin {
+  font-family: "Cormorant", serif;
+  background: #000000;
+  background-image: 
+      linear-gradient(45deg, #111111 25%, transparent 25%), 
+      linear-gradient(-45deg, #111111 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #111111 75%), 
+      linear-gradient(-45deg, transparent 75%, #111111 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100vw;
+}
+
+.renovar-admin .admin-container {
+  width: 100%;
+  max-width: 50vw;
+  animation: slideInSharp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.renovar-admin .header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border: 3px solid #ffffff;
+  padding: 1.5rem;
+  background: #000000;
+}
+
+.renovar-admin .header h1 {
+  font-family: "Cactus", serif;
+  color: #ffffff;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 3px 3px 0px #333333;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.renovar-admin .header p {
+  color: #cccccc;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.renovar-admin .form-card {
+  background: #ffffff;
+  border: 4px solid #000000;
+  padding: 3rem 2.5rem;
+  box-shadow: 
+      8px 8px 0px #333333,
+      12px 12px 0px #666666;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.renovar-admin .form-card:hover {
+  box-shadow: 
+      10px 10px 0px #333333,
+      14px 14px 0px #666666;
+}
+
+.renovar-admin .form-card h2 {
+  font-family: "Cactus", serif;
+  color: #000000;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.renovar-admin .form-card h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #000000;
+}
+
+.renovar-admin .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.renovar-admin .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.renovar-admin .input-wrapper {
+  position: relative;
+}
+
+.renovar-admin input, 
+.renovar-admin textarea,
+.renovar-admin select {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 3px solid #000000;
+  background: #ffffff;
+  font-size: 1rem;
+  font-family: "Cormorant", serif;
+  transition: all 0.2s ease;
+  resize: vertical;
+}
+
+.renovar-admin input:focus, 
+.renovar-admin textarea:focus,
+.renovar-admin select:focus {
+  outline: none;
+  background: #f0f0f0;
+  border-color: #333333;
+  box-shadow: 4px 4px 0px #cccccc;
+  transform: translate(-1px, -1px);
+}
+
+.renovar-admin textarea {
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.renovar-admin .btn {
+  width: 100%;
+  padding: 1.2rem;
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #000000;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Cormorant", serif;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.renovar-admin .btn:hover:not(:disabled) {
+  background: #ffffff;
+  color: #000000;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-admin .btn:active:not(:disabled) {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0px #333333;
+}
+
+.renovar-admin .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.renovar-admin .success-message, 
+.renovar-admin .error-message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid;
+}
+
+.renovar-admin .success-message {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+.renovar-admin .error-message {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.renovar-admin .logout-btn {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+  text-decoration: none;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.renovar-admin .logout-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-admin .posts-preview {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #000000;
+  border: 3px solid #ffffff;
+}
+
+.renovar-admin .posts-preview h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: "Cactus", serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.renovar-admin .post-item {
+  background: #ffffff;
+  color: #000000;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #000000;
+  transition: all 0.2s ease;
+}
+
+.renovar-admin .post-item:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0px #333333;
+}
+
+.renovar-admin .post-item:last-child {
+  margin-bottom: 0;
+}
+
+.renovar-admin .post-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+@keyframes slideInSharp {
+  from {
+      opacity: 0;
+      transform: translate(20px, 20px);
+  }
+  to {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+@keyframes sharpPulse {
+  0%, 100% {
+      transform: scale(1);
+      box-shadow: 4px 4px 0px #333333;
+  }
+  50% {
+      transform: scale(1.02);
+      box-shadow: 6px 6px 0px #333333;
+  }
+}
+
+.renovar-admin .btn.loading {
+  animation: sharpPulse 1.5s infinite;
+}
+
+.renovar-admin .form-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: 
+      repeating-linear-gradient(
+          45deg,
+          #000000 0px,
+          #000000 2px,
+          #ffffff 2px,
+          #ffffff 4px
+      );
+  z-index: -1;
+}
+
+.renovar-admin .custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.renovar-admin .modal-content {
+  background-color: #ffffff;
+  border: 4px solid #000000;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 
+      8px 8px 0px #333333,
+      12px 12px 0px #666666;
+  position: relative;
+}
+
+.renovar-admin .modal-content h3 {
+  font-family: "Cactus", serif;
+  color: #000000;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.renovar-admin .modal-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #000000;
+}
+
+.renovar-admin .img-full { width: 100%; display: block; margin: 10px 0; }
+.renovar-admin .img-left { float: left; width: 45%; margin: 0 10px 10px 0; }
+.renovar-admin .img-right { float: right; width: 45%; margin: 0 0 10px 10px; }
+
+.renovar-admin .modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.renovar-admin .btn-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+  padding: 0.8rem 1.5rem;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.renovar-admin .btn-secondary:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-admin .btn-primary {
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #000000;
+  padding: 0.8rem 1.5rem;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.renovar-admin .btn-primary:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-admin .btn-danger {
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #000000;
+  padding: 0.8rem 1.5rem;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.renovar-admin .btn-danger:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #333333;
+}
+
+.renovar-admin .post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.renovar-admin .post-label {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.renovar-admin .post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.renovar-admin .btn-edit, 
+.renovar-admin .btn-delete {
+  padding: 6px 12px;
+  border: 2px solid #000000;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  font-family: "Cormorant", serif;
+}
+
+.renovar-admin .btn-edit {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.renovar-admin .btn-edit:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.renovar-admin .btn-delete {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.renovar-admin .btn-delete:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.renovar-admin .preview-container {
+  border: 3px solid #000000;
+  padding: 1rem;
+  background: #f9f9f9;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.renovar-admin .content-preview h1 {
+  font-family: "Cactus", serif;
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: #000000;
+}
+
+.renovar-admin .content-preview h2 {
+  font-family: "Cormorant", serif;
+  font-size: 1.5rem;
+  margin: 0.8rem 0;
+  color: #000000;
+  font-weight: 700;
+}
+
+.renovar-admin .content-preview h3 {
+  font-family: "Cormorant", serif;
+  font-size: 1.3rem;
+  margin: 0.6rem 0;
+  color: #000000;
+  font-weight: 600;
+}
+
+.renovar-admin .content-preview p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.renovar-admin .content-preview strong {
+  font-weight: 700;
+}
+
+.renovar-admin .content-preview em {
+  font-style: italic;
+}
+
+.renovar-admin .content-preview ul, 
+.renovar-admin .content-preview ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.renovar-admin .content-preview code {
+  background: #000000;
+  color: #ffffff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.renovar-admin .content-preview blockquote {
+  border-left: 4px solid #000000;
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #666666;
+}
+
+.renovar-admin .markdown-help {
+  background: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 2px solid #ffffff;
+}
+
+.renovar-admin .markdown-help h4 {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.renovar-admin .markdown-help ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.renovar-admin .markdown-help li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .renovar-admin body {
+      padding: 1rem;
+  }
+
+  .renovar-admin .admin-container {
+      max-width: 100%;
+  }
+
+  .renovar-admin .header h1 {
+      font-size: 2.5rem;
+  }
+
+  .renovar-admin .form-card {
+      padding: 2rem 1.5rem;
+  }
+
+  .renovar-admin .logout-btn {
+      position: relative;
+      top: auto;
+      left: auto;
+      margin-bottom: 2rem;
+      display: inline-block;
+  }
+
+  .renovar-admin .modal-content {
+      padding: 1.5rem;
+  }
+
+  .renovar-admin .modal-buttons {
+      flex-direction: column;
+  }
+}
