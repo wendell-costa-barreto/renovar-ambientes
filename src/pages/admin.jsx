@@ -424,28 +424,6 @@ const AdminPanel = ({
           </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="imageUpload">Add Image</label>
-          <input
-            type="file"
-            id="imageUpload"
-            accept="image/*"
-            onChange={onFileChange}
-            disabled={isLoading}
-          />
-          <select
-            id="imagePosition"
-            name="imagePosition"
-            value={formData.imagePosition}
-            onChange={onInputChange}
-            disabled={isLoading}
-          >
-            <option value="full">Full Width</option>
-            <option value="left">Left</option>
-            <option value="right">Right</option>
-          </select>
-        </div>
-
         <div className="preview-container">
           {formData.content ? (
             <ReactMarkdown
