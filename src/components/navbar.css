@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'cormorant';
+    src: url("./fonts/CormorantGaramond-VariableFont_wght.ttf");
+}
+
+/* ===== NavBar Base ===== */
+header {
+  position: relative;
+  z-index: 1000; /* always on top */
+  background: #000;
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Logo */
+header .logo-placeholder img {
+  width: 150px;
+  height: auto;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+
+.menu-toggle.active {
+  transform: rotate(90deg);
+}
+
+/* Dropdown Menu */
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  background: #000;
+  z-index: 1010; /* above hero overlay */
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.menu.ativo {
+  max-height: 500px;
+  padding: 10px 0;
+}
+
+/* Menu Items */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-top: 1px solid #555;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: cormorant;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .menu {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    max-height: none;
+    padding: 0;
+    background: none;
+    width: auto;
+  }
+
+  .menu ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu li {
+    border: none;
+  }
+
+  .menu li a {
+    padding: 10px 15px;
+    color: white; /* ensure text is visible */
+  }
+
+  .menu li a:hover {
+    color: #555; /* optional hover */
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}

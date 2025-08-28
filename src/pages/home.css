@@ -15,20 +15,20 @@
 
 
 
-header{
-    background: #000;
-    height: 15vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+header {
+  background: #000;
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-header img{
-    width: 20%;
-    height: 80%;
-    margin-left: 20px;
+header img {
+  width: 20%;
+  height: 80%;
+  margin-left: 20px;
 }
 
 .menu-toggle {
@@ -37,33 +37,34 @@ header img{
   color: white;
   margin-left: auto;
   margin-right: 20px;
-  
-  
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.active {
+  transform: rotate(90deg); /* nice little rotation effect */
 }
 
 .menu {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
   background: #000;
   position: absolute;
   top: 15vh;
   left: 0;
   width: 100%;
-  transition: max-height 0.3s ease;
-  max-height: 0;
-  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
   text-align: center;
-  font-family: var(--fonte-titulo);
-  
 }
 
-.menu.ativo{
-    display: block;
-    max-height: 300px;
+.menu.ativo {
+  max-height: 300px; /* adjust for number of items */
+  padding: 10px 0;
 }
-
 
 .menu ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu li {
@@ -75,6 +76,7 @@ header img{
   padding: 10px 20px;
   color: white;
   text-decoration: none;
+  transition: background 0.3s, color 0.3s;
 }
 
 .menu li a:hover {

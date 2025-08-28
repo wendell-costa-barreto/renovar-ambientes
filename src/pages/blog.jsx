@@ -48,17 +48,19 @@ const RenovarBlog = () => {
   };
 
   return (
-    <div className="renovar-blog">
+    <>
       <NavBar />
-      <HeroSection />
-      <PostsSection
-        posts={posts}
-        loading={loading}
-        error={error}
-        onRetry={loadPosts}
-        onPostClick={handlePostClick}
-      />
-    </div>
+      <div className="renovar-blog">
+        <HeroSection />
+        <PostsSection
+          posts={posts}
+          loading={loading}
+          error={error}
+          onRetry={loadPosts}
+          onPostClick={handlePostClick}
+        />
+      </div>
+    </>
   );
 };
 

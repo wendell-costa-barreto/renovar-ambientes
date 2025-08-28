@@ -372,7 +372,7 @@ const AdminPanel = ({
   return (
     <div className="form-card" id="postCard">
       <button
-        onClick={() => (window.location.href = "/")}
+        onClick={() => (window.location.href = "/blog")}
         className="logout-btn"
       >
         ← BACK TO BLOG
