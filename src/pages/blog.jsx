@@ -35,7 +35,7 @@ const RenovarBlog = () => {
     } catch (err) {
       console.error("Failed to fetch posts:", err);
       setError(
-        "Unable to load posts. Please check your connection and try again."
+        "Não foi possível carregar os posts. Por favor, tente novamente."
       );
     } finally {
       setLoading(false);
@@ -68,9 +68,9 @@ const HeroSection = () => {
   return (
     <section className="hero">
       <div className="overlay">
-        <h1 className="title">BEM-VINDO AO RENOVAR</h1>
-        <p className="subtitle">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, id
+        <h1 className="title">Bem vindo ao Blog renovar</h1>
+        <p className="subtitle" style={{ textAlign: "center" }}>
+          Fique por dentro das últimas tendências do design e arquitetura
         </p>
       </div>
     </section>
@@ -104,10 +104,10 @@ const LoadingState = () => {
 const ErrorState = ({ error, onRetry }) => {
   return (
     <div className="empty-state">
-      <h3>UNABLE TO LOAD POSTS</h3>
+      <h3>Não foi possível carregar os posts</h3>
       <p>{error}</p>
       <button className="cta-button" onClick={onRetry}>
-        RETRY
+        Tentar Novamente
       </button>
     </div>
   );
@@ -116,7 +116,7 @@ const ErrorState = ({ error, onRetry }) => {
 const EmptyState = () => {
   return (
     <div className="empty-state">
-      <h3>NO POSTS YET</h3>
+      <h3>Nenhum post ainda</h3>
     </div>
   );
 };

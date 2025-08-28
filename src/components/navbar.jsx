@@ -36,13 +36,8 @@ export default function NavBar() {
       <nav ref={menuRef} className={`menu ${menuOpen ? "ativo" : ""}`}>
         <ul>
           <li>
-            <a href="#sobre" onClick={() => setMenuOpen(false)}>
+            <a href="/#sobre" onClick={() => setMenuOpen(false)}>
               Quem Somos
-            </a>
-          </li>
-          <li>
-            <a href="#processo" onClick={() => setMenuOpen(false)}>
-              Processo
             </a>
           </li>
           <li>
@@ -51,7 +46,7 @@ export default function NavBar() {
             </a>
           </li>
           <li>
-            <a href="#contato" onClick={() => setMenuOpen(false)}>
+            <a href="/#contato" onClick={() => setMenuOpen(false)}>
               Contato
             </a>
           </li>

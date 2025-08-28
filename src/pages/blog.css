@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Cactus";
-  src: url("./fonts/CactusClassicalSerif-Regular.ttf");
+  src: url("/fonts/CactusClassicalSerif-Regular.ttf");
 }
 
 @font-face {
   font-family: "Cormorant";
-  src: url("./fonts/CormorantGaramond-VariableFont_wght.ttf");
+  src: url("/fonts/CormorantGaramond-VariableFont_wght.ttf");
 }
 
 :root{
@@ -32,6 +32,18 @@
   border: 4px solid #ffffff;
   animation: slideInSharp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+}
+
+
+.overlay{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay .subtitle{
+  font-weight: 400;
 }
 
 

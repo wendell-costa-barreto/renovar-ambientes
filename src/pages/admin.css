@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Cactus";
-  src: url("./fonts/CactusClassicalSerif-Regular.ttf");
+  src: url("/fonts/CactusClassicalSerif-Regular.ttf");
 }
 
 @font-face {
   font-family: "Cormorant";
-  src: url("./fonts/CormorantGaramond-VariableFont_wght.ttf");
+  src: url("/fonts/CormorantGaramond-VariableFont_wght.ttf");
 }
 
 .renovar-admin * {

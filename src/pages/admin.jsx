@@ -43,7 +43,7 @@ const RenovarAdmin = () => {
     }
   }, [message]);
 
-  const showMessage = (text, type = "success") => {
+  const showMessage = (text, type = "sucesso") => {
     setMessage({ text, type });
   };
 
@@ -81,7 +81,7 @@ const RenovarAdmin = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`Login failed with status ${response.status}`);
+        throw new Error(`Login falhou com status ${response.status}`);
       }
 
       const contentType = response.headers.get("content-type");
@@ -154,7 +154,7 @@ const RenovarAdmin = () => {
       }
 
       const data = await res.json();
-      showMessage("Post created successfully!", "success");
+      showMessage("Post criado com sucesso!", "success");
       loadPosts();
 
       // Clear form
@@ -167,7 +167,7 @@ const RenovarAdmin = () => {
       });
     } catch (err) {
       console.error(err);
-      showMessage(err.message || "Error creating post", "error");
+      showMessage(err.message || "Erro em criar post", "error");
     }
   };
 
@@ -179,7 +179,7 @@ const RenovarAdmin = () => {
       const postsData = await res.json();
       setPosts(postsData);
     } catch (err) {
-      console.error("Failed to load posts:", err);
+      console.error("Falha ao carregar posts:", err);
       setPosts([]);
     }
   };
@@ -303,13 +303,13 @@ const RenovarAdmin = () => {
 const LoginForm = ({ onSubmit, isLoading, message }) => {
   return (
     <div className="form-card" id="loginCard">
-      <h2>Welcome Back</h2>
+      <h2>Bem-vindo de volta</h2>
       {message.text && (
         <div className={`${message.type}-message`}>{message.text}</div>
       )}
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Nome de Usuário</label>
           <div className="input-wrapper">
             <input
               id="username"
@@ -323,7 +323,7 @@ const LoginForm = ({ onSubmit, isLoading, message }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Senha</label>
           <div className="input-wrapper">
             <input
               id="password"
@@ -341,7 +341,7 @@ const LoginForm = ({ onSubmit, isLoading, message }) => {
           className={`btn ${isLoading ? "loading" : ""}`}
           disabled={isLoading}
         >
-          {isLoading ? "PLEASE WAIT..." : "SIGN IN"}
+          {isLoading ? "Por favor, aguarde..." : "Entrar"}
         </button>
       </form>
     </div>
@@ -375,17 +375,17 @@ const AdminPanel = ({
         onClick={() => (window.location.href = "/blog")}
         className="logout-btn"
       >
-        ← BACK TO BLOG
+        ← Voltar para o Blog
       </button>
       <button
         onClick={onLogout}
         className="logout-btn"
         style={{ left: "auto", right: "2rem" }}
       >
-        LOGOUT
+        Sair
       </button>
 
-      <h2>Create New Post</h2>
+      <h2>Criar Novo Post</h2>
 
       {message.text && (
         <div className={`${message.type}-message`}>{message.text}</div>
@@ -393,7 +393,7 @@ const AdminPanel = ({
 
       <form onSubmit={onSubmitPost}>
         <div className="form-group">
-          <label htmlFor="title">Post Title</label>
+          <label htmlFor="title">Título do Post</label>
           <div className="input-wrapper">
             <input
               id="title"
@@ -409,7 +409,7 @@ const AdminPanel = ({
         </div>
 
         <div className="form-group">
-          <label htmlFor="content">Content (Markdown Supported)</label>
+          <label htmlFor="content">Conteúdo do Post</label>
           <div className="input-wrapper">
             <textarea
               id="content"
@@ -432,12 +432,12 @@ const AdminPanel = ({
               rehypePlugins={[rehypeRaw]}
             />
           ) : (
-            <p className="preview-placeholder">Preview will appear here...</p>
+            <p className="preview-placeholder">Preview vai aparacer aqui</p>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="label">Category</label>
+          <label htmlFor="label">Categoria</label>
           <div className="input-wrapper">
             <input
               id="label"
@@ -467,28 +467,28 @@ const AdminPanel = ({
         onClick={() => setShowMarkdownHelp(!showMarkdownHelp)}
         style={{ marginTop: "10px" }}
       >
-        Markdown Help
+        Ajuda com Markdown
       </button>
 
       {showMarkdownHelp && (
         <div className="markdown-help">
-          <h4>Markdown Cheat Sheet</h4>
+          <h4>Ajuda com Markdown</h4>
           <ul>
             <li>
-              <strong># Header 1</strong> →{" "}
-              <h1 style={{ display: "inline", fontSize: "1rem" }}>Header 1</h1>
+              <strong># Título 1</strong> →{" "}
+              <h1 style={{ display: "inline", fontSize: "1rem" }}>Título 1</h1>
             </li>
             <li>
-              <strong>## Header 2</strong> →{" "}
+              <strong>## Título 2</strong> →{" "}
               <h2 style={{ display: "inline", fontSize: "0.9rem" }}>
-                Header 2
+                Título 2
               </h2>
             </li>
             <li>
-              <strong>**Bold**</strong> → <strong>Bold</strong>
+              <strong>**Negrito**</strong> → <strong>Negrito</strong>
             </li>
             <li>
-              <strong>*Italic*</strong> → <em>Italic</em>
+              <strong>*Itálico*</strong> → <em>Itálico</em>
             </li>
             <li>
               <strong>[Link](url)</strong> →{" "}
@@ -497,13 +497,13 @@ const AdminPanel = ({
               </a>
             </li>
             <li>
-              <strong>* List item</strong> → • List item
+              <strong>* Lista item</strong> → • Lista item
             </li>
             <li>
-              <strong>1. Ordered item</strong> → 1. Ordered item
+              <strong>1. Itens ordenados</strong> → 1. Item 1
             </li>
             <li>
-              <strong>`Code`</strong> → <code>Code</code>
+              <strong>`Código`</strong> → <code>Código</code>
             </li>
             <li>
               <strong>&gt; Blockquote</strong> →{" "}
@@ -526,7 +526,7 @@ const PostsPreview = ({ posts, onEdit, onDelete }) => {
 
   return (
     <div id="postsPreview" className="posts-preview">
-      <h3>Recent Posts</h3>
+      <h3>Posts recentes</h3>
       <div id="recentPosts">
         {posts.map((post) => (
           <div key={post.id} className="post-item">
@@ -550,13 +550,13 @@ const PostsPreview = ({ posts, onEdit, onDelete }) => {
             </p>
             <div className="post-actions">
               <button className="btn-edit" onClick={() => onEdit("edit", post)}>
-                Edit
+                Editar
               </button>
               <button
                 className="btn-delete"
                 onClick={() => onDelete("delete", post)}
               >
-                Delete
+                Deletar
               </button>
             </div>
           </div>
@@ -595,9 +595,9 @@ const EditModal = ({ post, onSave, onClose, parseMarkdown }) => {
   return (
     <div className="custom-modal active">
       <div className="modal-content">
-        <h3>Edit Post</h3>
+        <h3>Editar post</h3>
         <div className="form-group">
-          <label htmlFor="editTitle">Title</label>
+          <label htmlFor="editTitle">Título</label>
           <input
             type="text"
             id="editTitle"
@@ -608,7 +608,7 @@ const EditModal = ({ post, onSave, onClose, parseMarkdown }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="editContent">Content (Markdown Supported)</label>
+          <label htmlFor="editContent">Conteúdo</label>
           <textarea
             id="editContent"
             name="content"
@@ -619,7 +619,7 @@ const EditModal = ({ post, onSave, onClose, parseMarkdown }) => {
         </div>
 
         <div className="form-group">
-          <label>Live Preview</label>
+          <label>Preview</label>
           <div
             className="content-preview"
             dangerouslySetInnerHTML={{ __html: previewContent }}
@@ -627,7 +627,7 @@ const EditModal = ({ post, onSave, onClose, parseMarkdown }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="editLabel">Category</label>
+          <label htmlFor="editLabel">Categoria</label>
           <input
             type="text"
             id="editLabel"
@@ -637,23 +637,12 @@ const EditModal = ({ post, onSave, onClose, parseMarkdown }) => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="editImage">Upload Image (Optional)</label>
-          <input
-            type="file"
-            id="editImage"
-            name="imageFile"
-            accept="image/*"
-            onChange={handleInputChange}
-          />
-        </div>
-
         <div className="modal-buttons">
           <button className="btn-secondary" onClick={onClose}>
-            Cancel
+            Cancelar
           </button>
           <button className="btn-primary" onClick={handleSubmit}>
-            Save Changes
+            Salvar alterações
           </button>
         </div>
       </div>
@@ -665,14 +654,14 @@ const DeleteModal = ({ post, onConfirm, onClose }) => {
   return (
     <div className="custom-modal active">
       <div className="modal-content">
-        <h3>Confirm Deletion</h3>
-        <p>Are you sure you want to delete the post "{post.title}"?</p>
+        <h3>Confirmar deletação</h3>
+        <p>Tem certeza de que deseja deletar? "{post.title}"?</p>
         <div className="modal-buttons">
           <button className="btn-secondary" onClick={onClose}>
-            Cancel
+            Cancelar
           </button>
           <button className="btn-danger" onClick={() => onConfirm(post.id)}>
-            Delete Post
+            Deletar post
           </button>
         </div>
       </div>
