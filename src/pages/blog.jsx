@@ -7,6 +7,7 @@ const RenovarBlog = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [navbarScrolled, setNavbarScrolled] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +27,7 @@ const RenovarBlog = () => {
     setError(null);
 
     try {
-      const res = await fetch("api/posts");
+      const res = await fetch(`${API_URL}/posts`);
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
       const postsData = await res.json();

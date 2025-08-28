@@ -7,6 +7,8 @@ const RenovarPost = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const RenovarPost = () => {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/post/${id}`);
+      const response = await fetch(`${API_URL}/post/${id}`);
 
       if (!response.ok) {
         if (response.status === 404) {

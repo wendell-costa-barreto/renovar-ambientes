@@ -13,6 +13,7 @@ const RenovarAdmin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showMarkdownHelp, setShowMarkdownHelp] = useState(false);
   const [modal, setModal] = useState({ isOpen: false, type: "", data: null });
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [formData, setFormData] = useState({
     title: "",
@@ -71,7 +72,7 @@ const RenovarAdmin = () => {
     };
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch(`/${API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -141,7 +142,7 @@ const RenovarAdmin = () => {
         });
       }
 
-      const res = await fetch("/api/posts", {
+      const res = await fetch(`${API_URL}/posts`, {
         method: "POST",
         headers,
         body,
@@ -172,7 +173,7 @@ const RenovarAdmin = () => {
 
   const loadPosts = async () => {
     try {
-      const res = await fetch(`/api/posts`);
+      const res = await fetch(`${API_URL}/posts`);
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
       const postsData = await res.json();
@@ -192,7 +193,7 @@ const RenovarAdmin = () => {
     if (imageFile) fd.append("image", imageFile);
 
     try {
-      const res = await fetch(`/api/posts/${id}`, {
+      const res = await fetch(`${API_URL}/posts/${id}`, {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` }, // no Content-Type for FormData
         body: fd,
@@ -218,7 +219,7 @@ const RenovarAdmin = () => {
 
   const handleDeletePost = async (postId) => {
     try {
-      const res = await fetch(`/api/posts/${postId}`, {
+      const res = await fetch(`${API_URL}/posts/${postId}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,
